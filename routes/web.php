@@ -18,12 +18,12 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-// route at such adress (/contact) that target a string
+// route at such adress (/contact) that targets a string
 Route::get('/contact', function () {
 	return "contact us";
 });
 
-// idem as above but target conventional server infos
+// idem as above but targets conventional server infos
 Route::get('/infos', function () {
 	return phpinfo();
 });
