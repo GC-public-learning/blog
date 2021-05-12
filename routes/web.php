@@ -23,7 +23,7 @@ Route::get('/contact', function () {
 	return "contact us";
 });
 
-// idem as above
+// idem as above but target conventional server infos
 Route::get('/infos', function () {
 	return phpinfo();
 });
