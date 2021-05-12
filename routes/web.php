@@ -25,5 +25,5 @@ Route::get('/contact', function () {
 
 // idem as above
 Route::get('/infos', function () {
-	return "infos";
+	return phpinfo();
 });
