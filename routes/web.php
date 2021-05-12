@@ -13,6 +13,17 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
+// main route on the root that targets a view 
 Route::get('/', function () {
     return view('welcome');
+});
+
+// route at such adress (/contact) that target a string
+Route::get('/contact', function () {
+	return "contact us";
+});
+
+// idem as above
+Route::get('/infos', function () {
+	return "infos";
 });
