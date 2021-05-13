@@ -23,3 +23,15 @@ Route::get('/', function () {
 Route::view('contact', 'contact');
 Route::view('infos', 'infos');
 
+Route::get('customers', function () {
+
+	$customers = [
+		'Jean',
+		'Marc',
+		'Yves'
+	];
+
+	// send data named "customer" from the array "$customers"
+	return view('customers.index', ['customers' => $customers]);
+});
+
