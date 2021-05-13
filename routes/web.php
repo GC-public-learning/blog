@@ -18,12 +18,8 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-// route at such adress (/contact) that targets a string
-Route::get('/contact', function () {
-	return "contact us";
-});
+// shorter way : 1st param = url, 2nd = view name
+// end of viewname not taken into account (blade.php) 
+Route::view('contact', 'contact');
+Route::view('infos', 'infos');
 
-// idem as above but targets conventional server infos
-Route::get('/infos', function () {
-	return phpinfo();
-});
