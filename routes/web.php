@@ -23,15 +23,8 @@ Route::get('/', function () {
 Route::view('contact', 'contact');
 Route::view('infos', 'infos');
 
-Route::get('customers', function () {
+// !! be carrefull : in the path, write "App" with uppercase for the 1st letter 
+// otherwise the path doesn't work !!
+Route::get('customers', 'App\Http\Controllers\CustomersController@list');
 
-	$customers = [
-		'Jean',
-		'Marc',
-		'Yves'
-	];
-
-	// send data named "customer" from the array "$customers"
-	return view('customers.index', ['customers' => $customers]);
-});
 
