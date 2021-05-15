@@ -1,3 +1,6 @@
+
+@extends('layout')
+@section('content')
 <h1>Customers</h1>
 
 
@@ -14,4 +17,4 @@
 		<li>{{ $c }}</li>
 	@endforeach
 </ul
-
+@endsection
