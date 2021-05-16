@@ -23,7 +23,7 @@
 	@endforeach
 </ul>
 <form action="customers" method="POST">
-	<!-- laravel tool to forbid csrf-->
+	<!-- laravel tool to forbid csrf with a token -->
 	@csrf
 	<div class="form-group">
 		<input type="text" class="form-control" name="nickname">
