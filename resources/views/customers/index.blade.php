@@ -21,5 +21,14 @@
 		<li><?= $c->name ?></li>
 		<li>{{ $c }}</li>
 	@endforeach
-</ul
+</ul>
+<form action="customers" method="POST">
+	<!-- laravel tool to forbid csrf-->
+	@csrf
+	<div class="form-group">
+		<input type="text" class="form-control" name="nickname">
+		<button type="submit" class="btn btn-primary">add customer</button>
+	</div>
+	
+</form>
 @endsection
