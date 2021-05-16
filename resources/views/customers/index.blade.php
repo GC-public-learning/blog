@@ -26,7 +26,14 @@
 	<!-- laravel tool to forbid csrf with a token -->
 	@csrf
 	<div class="form-group">
-		<input type="text" class="form-control" name="nickname">
+		<input type="text" class="form-control @error('nickname') is-invalid 
+			@enderror" name="nickname">
+
+		@error('nickname')
+		 <div class="invalid-feedback">
+      		{{ $errors->first('nickname')}}
+   		 </div>
+   		@enderror
 		<button type="submit" class="btn btn-primary">add customer</button>
 	</div>
 	

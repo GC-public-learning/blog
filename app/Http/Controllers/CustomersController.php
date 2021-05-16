@@ -14,6 +14,13 @@ class CustomersController extends Controller
     }
 
     public function store() {
+
+    	# add a rule from laravel validation place to check the values 
+    	# required -> check if the value is nul or empty
+    	request()->validate([
+    		'nickname' => 'required'
+    	]);
+    	
     	$nickname = request('nickname');
 
     	# display the value of a var to check
