@@ -10,4 +10,4 @@
 ## infos
 
 this project is just a demo that's realized in order to learn the different components of Laravel Framework. this projects is completed step by step in connection with the repos
-[formation_laravel_5.8]("https://github.com/Geoffrey-Carpentier/formation_laravel_5.8") on this GitHub space
+[formation_laravel_5.8/](https://github.com/Geoffrey-Carpentier/formation_laravel_5.8) on this GitHub space
