@@ -17,17 +17,22 @@ class CustomersController extends Controller
 
     	# add a rule from laravel validation place to check the values 
     	# required -> check if the value is null or empty
+        # email -> valid email
+        # min -> characters minimum
     	request()->validate([
-    		'nickname' => 'required'
-    	]);
+    		'nickname' => 'required|min:3',
+            'email' => 'required|email' # rules combination
+        ]);
     	
     	$nickname = request('nickname');
+        $email = request('email');
 
     	# display the value of a var to check
     	//dd($nickname);
 
     	$customer = new Customer();
     	$customer->name = $nickname;
+        $customer->email = $email;
 
     	# create a record on the bdd 
     	$customer->save();
