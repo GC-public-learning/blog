@@ -7,11 +7,15 @@ use App\Models\Customer;
 class CustomersController extends Controller
 {
     public function list() {
-    	$customers = Customer::all();
+    	//$customers = Customer::all();
 
-	// send data named "customer" from the array "$customers"
-	return view('customers.index', ['customers' => $customers]);
+        // filtered request
+        $customers = Customer::where("status", '=', False)->get();
+
+	   // send data named "customer" from the array "$customers"
+	   return view('customers.index', ['customers' => $customers]);
     }
+
 
     public function store() {
 
@@ -23,18 +27,26 @@ class CustomersController extends Controller
     		'nickname' => 'required|min:3',
             'email' => 'required|email' # rules combination
         ]);
+
     	
+        // retrieve the values from post requests
     	$nickname = request('nickname');
         $email = request('email');
 
-    	# display the value of a var to check
-    	//dd($nickname);
+        ## tip : if the value "status" doesn't exist, the checkbox isn't checked
+        $status = isset($_POST['status']);
 
+        
+    	# display the value of a var to check
+    	//dd($status);
+
+        // make a new customer with the retrieved values
     	$customer = new Customer();
     	$customer->name = $nickname;
         $customer->email = $email;
+        $customer->status = $status;
 
-    	# create a record on the bdd 
+    	# save the new customer by create a record on the bdd 
     	$customer->save();
 
     	# return to the last view opened

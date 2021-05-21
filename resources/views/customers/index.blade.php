@@ -34,8 +34,21 @@
    		@enderror
 	</div>
 
+	<div class="form-group">
+		<div class="form-check">
+  			<input class="form-check-input" type="checkbox" name="status">
+  			<label class="form-check-label">active ?</label>
+		</div>
+		<script>
+			
+		</script>
+	</div>
+
+
+
 	<button type="submit" class="btn btn-primary">add customer</button>
 	
+
 	
 </form>
 @endsection
