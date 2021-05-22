@@ -14,12 +14,12 @@
 	<!-- laravel tool to forbid csrf with a token -->
 	@csrf
 	<div class="form-group">
-		<input type="text" class="form-control @error('nickname') is-invalid 
-			@enderror" name="nickname" placeholder="name">
-		@error('nickname')
+		<input type="text" class="form-control @error('name') is-invalid 
+			@enderror" name="name" placeholder="name">
+		@error('name')
 		 <div class="invalid-feedback">
 		 	<!-- return the error handled by the controller with the chosen rules  -->
-      		{{ $errors->first('nickname')}}
+      		{{ $errors->first('name')}}
    		 </div>
    		@enderror
    	</div>

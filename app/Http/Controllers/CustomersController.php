@@ -10,7 +10,7 @@ class CustomersController extends Controller
     	//$customers = Customer::all();
 
         // filtered request
-        $customers = Customer::where("status", '=', False)->get();
+        $customers = Customer::status();
 
 	   // send data named "customer" from the array "$customers"
 	   return view('customers.index', ['customers' => $customers]);
@@ -23,31 +23,21 @@ class CustomersController extends Controller
     	# required -> check if the value is null or empty
         # email -> valid email
         # min -> characters minimum
-    	request()->validate([
-    		'nickname' => 'required|min:3',
+    	$a = request()->validate([
+    		'name' => 'required|min:3',
             'email' => 'required|email' # rules combination
         ]);
 
-    	
-        // retrieve the values from post requests
-    	$nickname = request('nickname');
-        $email = request('email');
-
         ## tip : if the value "status" doesn't exist, the checkbox isn't checked
-        $status = isset($_POST['status']);
+        $a['status'] = isset($_POST['status']);
 
         
     	# display the value of a var to check
-    	//dd($status);
+    	//dd($a);
 
         // make a new customer with the retrieved values
-    	$customer = new Customer();
-    	$customer->name = $nickname;
-        $customer->email = $email;
-        $customer->status = $status;
+    	Customer::create($a);
 
-    	# save the new customer by create a record on the bdd 
-    	$customer->save();
 
     	# return to the last view opened
     	return back();
