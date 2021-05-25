@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\CustomersController;
 
 /*
 |--------------------------------------------------------------------------
@@ -25,6 +26,5 @@ Route::view('infos', 'infos');
 
 // !! be carrefull : in the path, write "App" with uppercase for the 1st letter 
 // otherwise the path doesn't work !!
-Route::get('customers', 'App\Http\Controllers\CustomersController@list');
-Route::post('customers', 'App\Http\Controllers\CustomersController@store');
-
+Route::get('customers', [CustomersController::class, 'list']);
+Route::post('customers', [CustomersController::class, 'store']);

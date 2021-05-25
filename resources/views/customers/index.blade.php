@@ -6,7 +6,7 @@
 <!-- get data (with blade) -->
 <ul>
 	@foreach($customers as $c)
-		<li>{{$c->name}} <em class="text-muted">{{$c->email}}</em></li>
+		<li>{{$c->name}} <em class="text-muted">{{$c->company->name}}</em></li>
 		<li>{{ $c }}</li>
 	@endforeach
 </ul>
@@ -44,11 +44,21 @@
 		</script>
 	</div>
 
+	<div class="form-group">
+		<select class="form-select @error('company_id') is-invalid 
+			@enderror "name="company_id" aria-label="Default select example" 
+			name="entreprise_id">
+			@foreach($companies as $c)
+		  		<option value="{{ $c->id}}">{{$c->name}}</option>
+		 	@endforeach
+		</select>
+		@error('company_id')
+		 <div class="invalid-feedback">
+      		{{ $errors->first('company_id')}}
+   		 </div>
+   		@enderror
+	</div>
 
-
-	<button type="submit" class="btn btn-primary">add customer</button>
-	
-
-	
+	<button type="submit" class="btn btn-primary">add customer</button>	
 </form>
 @endsection

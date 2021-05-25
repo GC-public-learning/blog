@@ -1,6 +1,7 @@
 <?php
 
 namespace App\Http\Controllers;
+use App\Models\Company;
 
 use Illuminate\Http\Request;
 use App\Models\Customer;
@@ -11,9 +12,10 @@ class CustomersController extends Controller
 
         // filtered request
         $customers = Customer::status();
+        $companies = Company::all();
 
-	   // send data named "customer" from the array "$customers"
-	   return view('customers.index', ['customers' => $customers]);
+	   // compact is a convenient way to send data on the view
+	   return view('customers.index', compact('customers','companies'));
     }
 
 
@@ -25,7 +27,8 @@ class CustomersController extends Controller
         # min -> characters minimum
     	$a = request()->validate([
     		'name' => 'required|min:3',
-            'email' => 'required|email' # rules combination
+            'email' => 'required|email', # rules combination
+            'company_id' => 'required|integer'
         ]);
 
         ## tip : if the value "status" doesn't exist, the checkbox isn't checked
