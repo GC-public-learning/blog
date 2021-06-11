@@ -7,15 +7,19 @@ use Illuminate\Http\Request;
 use App\Models\Customer;
 class CustomersController extends Controller
 {
-    public function list() {
+    public function index() {
     	//$customers = Customer::all();
 
         // filtered request
-        $customers = Customer::status();
-        $companies = Company::all();
+        $customers = Customer::all();
 
 	   // compact is a convenient way to send data on the view
-	   return view('customers.index', compact('customers','companies'));
+	   return view('customers.index', compact('customers'));
+    }
+
+    public function create() {
+        $companies = Company::all();
+        return view('customers.create', compact('companies'));
     }
 
 

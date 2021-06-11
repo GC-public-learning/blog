@@ -1,6 +1,9 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+
+// !! be carrefull : in the path, write "App" with uppercase for the 1st letter 
+// otherwise the path doesn't work !!
 use App\Http\Controllers\CustomersController;
 
 /*
@@ -24,7 +27,8 @@ Route::get('/', function () {
 Route::view('contact', 'contact');
 Route::view('infos', 'infos');
 
-// !! be carrefull : in the path, write "App" with uppercase for the 1st letter 
-// otherwise the path doesn't work !!
-Route::get('customers', [CustomersController::class, 'list']);
+
+// customers
+Route::get('customers', [CustomersController::class, 'index']);
 Route::post('customers', [CustomersController::class, 'store']);
+Route::get('customers/create', [CustomersController::class, 'create']);

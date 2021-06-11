@@ -13,13 +13,13 @@
 		    <a class="nav-link active" aria-current="page" href="/">Home</a>
 		  </li>
 		   <li class="nav-item">
-		    <a class="nav-link" href="customers">Customers</a>
+		    <a class="nav-link" href="/customers">Customers</a>
 		  </li>
 		  <li class="nav-item">
-		    <a class="nav-link" href="contact">Contacts</a>
+		    <a class="nav-link" href="/contact">Contacts</a>
 		  </li>
 		  <li class="nav-item">
-		    <a class="nav-link" href="infos">Infos</a>
+		    <a class="nav-link" href="/infos">Infos</a>
 		  </li>
 		  <li class="nav-item">
 		    <a class="nav-link disabled" href="#" tabindex="-1" aria-disabled="true">Disabled</a>
