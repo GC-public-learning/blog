@@ -5,13 +5,6 @@
 <!--- use bootstrap class to make a button with the link with a margin of 3--->
 <a href="/customers/create" class="btn btn-primary my-3">new customer</a>
 
-<!-- get data (with blade) -->
-<ul>
-	@foreach($customers as $c)
-		<li>{{$c->name}} <em class="text-muted">{{$c->company->name}}</em></li>
-		<li>{{ $c }}</li>
-	@endforeach
-</ul>
 <table class="table table-striped">
   <thead>
     <tr>

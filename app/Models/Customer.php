@@ -21,4 +21,10 @@ class Customer extends Model {
      public function company() {
     	return $this->belongsTo(Company::class);
     }
+    public function getStatusAttribute($attributes) {
+    	return [
+    		False => 'inactive',
+    		True => 'active'
+    	][$attributes];
+    }
 }
