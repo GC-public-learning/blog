@@ -32,3 +32,6 @@ Route::view('infos', 'infos');
 Route::get('customers', [CustomersController::class, 'index']);
 Route::post('customers', [CustomersController::class, 'store']);
 Route::get('customers/create', [CustomersController::class, 'create']);
+
+// "customer" mean "id" of that last one
+Route::get('customers/{customer}', [CustomersController::class, 'show']);

@@ -18,7 +18,7 @@
   	@foreach($customers as $c)
     <tr>
       <th scope="row">{{$c->id}}</th>
-      <td>{{$c->name}}</td>
+      <td><a href="/customers/{{ $c->id}}">{{$c->name}}</a></td>
       <td>{{$c->status}}</td>
       <td>{{$c->company->name}}</td>
     </tr>

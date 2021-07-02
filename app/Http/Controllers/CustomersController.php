@@ -8,12 +8,12 @@ use App\Models\Customer;
 class CustomersController extends Controller
 {
     public function index() {
-    	//$customers = Customer::all();
+    	# $customers = Customer::all();
 
-        // filtered request
+        # filtered request
         $customers = Customer::all();
 
-	   // compact is a convenient way to send data on the view
+	   # compact is a convenient way to send data on the view
 	   return view('customers.index', compact('customers'));
     }
 
@@ -39,14 +39,30 @@ class CustomersController extends Controller
         $a['status'] = isset($_POST['status']);
 
         
-    	# display the value of a var to check
+    	# display the value of a var to test
     	//dd($a);
 
-        // make a new customer with the retrieved values
+        # make a new customer with the retrieved values
     	Customer::create($a);
 
 
     	# return to the last view opened
     	return back();
+    }
+
+    /*
+    public function show($customer) { # $customer is an id
+        # $customer = Customer::find($customer);
+
+        # better than the instruction just above because generate 404 if error
+        $customer = Customer::where('id', $customer)->firstOrFail();
+        # dd($customer); # to test
+        return view('customers.show', compact('customer'));
+    }
+    */
+
+    // model binding : shorter way and generate automaticaly 404 in error case
+    public function show(Customer $customer) {
+        return view('customers/show', compact('customer'));
     }
 }
