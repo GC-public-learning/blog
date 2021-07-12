@@ -19,7 +19,10 @@ class CustomersController extends Controller
 
     public function create() {
         $companies = Company::all();
-        return view('customers.create', compact('companies'));
+
+        # send empty object to prevent "undefined variable error" with create form 
+        $customer = new Customer();
+        return view('customers.create', compact('companies', 'customer'));
     }
 
 
@@ -29,14 +32,14 @@ class CustomersController extends Controller
     	# required -> check if the value is null or empty
         # email -> valid email
         # min -> characters minimum
-    	$a = request()->validate([
+    	$data = request()->validate([
     		'name' => 'required|min:3',
             'email' => 'required|email', # rules combination
             'company_id' => 'required|integer'
         ]);
 
         ## tip : if the value "status" doesn't exist, the checkbox isn't checked
-        $a['status'] = isset($_POST['status']);
+        $data['status'] = isset($_POST['status']);
 
         
     	# display the value of a var to test
@@ -64,5 +67,20 @@ class CustomersController extends Controller
     // model binding : shorter way and generate automaticaly 404 in error case
     public function show(Customer $customer) {
         return view('customers/show', compact('customer'));
+    }
+
+    public function edit(Customer $customer) {
+        $companies = Company::all();
+        return view('customers/edit', compact('customer', 'companies'));
+    }
+    public function update(Customer $customer) {
+        $data = request()->validate([
+            'name' => 'required|min:3',
+            'email' => 'required|email', # rules combination
+            'company_id' => 'required|integer'
+        ]);
+        $customer->update($data);
+        return redirect('/customers/'.$customer->id);
+
     }
 }
