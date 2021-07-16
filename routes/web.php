@@ -37,3 +37,4 @@ Route::get('customers/create', [CustomersController::class, 'create']);
 Route::get('customers/{customer}', [CustomersController::class, 'show']);
 Route::get('customers/{customer}/edit', [CustomersController::class, 'edit']);
 Route::patch('customers/{customer}', [CustomersController::class, 'update']);
+Route::delete('customers/{customer}', [CustomersController::class, 'destroy']);
